@@ -2,6 +2,7 @@ import tradingeconomics as te
 
 te.login('5b47a77efd37439:5kzkij2hyxd98d4')
 
+
 prt = te.getIndicatorData(country=['mexico'], output_type='df')
 
 gdp = te.getIndicatorByCategoryGroup(country='mexico', category_group='gdp', output_type='df')
@@ -80,9 +81,13 @@ mar_for = te.getMarketsForecasts(category='bond')
 
 mar_sym = te.getMarketsForecasts(symbol='')
 
-news = te.getNews()
+news = te.getNews(country='sweden', start_date='2021-01-01')
 
-print(news)
+new_country = te.getNews(country='sweden', indicator='inflation rate')
+
+n_idx = te.getNews(start=10, limit=5)
+
+print(n_idx)
 
 
 
